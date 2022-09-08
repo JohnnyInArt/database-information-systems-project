@@ -121,7 +121,7 @@ create table Dipendente (
 
    Using only '\ n' in the command 'lines terminated by' 
 */
-load data local infile '~/Documenti/1_Università/2 anno/Basi Dati e Sistemi Informativi/5_Progetto/CVS File/Utente.csv' 
+load data local infile '~/database-project/res/csv/Utente.csv' 
 into table Utente
 fields terminated by ','
 optionally enclosed by '"'
@@ -129,7 +129,7 @@ lines terminated by '\n'
 ignore 1 lines;
 
 
-load data local infile '~/Documenti/1_Università/2 anno/Basi Dati e Sistemi Informativi/5_Progetto/CVS File/Admin.csv' 
+load data local infile '~/database-project/res/csv/Admin.csv' 
 into table Admin
 fields terminated by ','
 optionally enclosed by '"'
@@ -137,7 +137,7 @@ lines terminated by '\n'
 ignore 1 lines;
 
 
-load data local infile '~/Documenti/1_Università/2 anno/Basi Dati e Sistemi Informativi/5_Progetto/CVS File/User.csv'
+load data local infile '~/database-project/res/csv/User.csv'
 into table User
 fields terminated by ','
 optionally enclosed by '"'
@@ -151,7 +151,7 @@ insert into Istruzione(Tipologia) values
 ('Istruzione superiore');
 
 
-load data local infile '~/Documenti/1_Università/2 anno/Basi Dati e Sistemi Informativi/5_Progetto/CVS File/Scuola.csv'
+load data local infile '~/database-project/res/csv/Scuola.csv'
 into table Scuola
 fields terminated by ','
 optionally enclosed by '"'
@@ -159,7 +159,7 @@ lines terminated by '\n'
 ignore 1 lines;
 
 
-load data local infile '~/Documenti/1_Università/2 anno/Basi Dati e Sistemi Informativi/5_Progetto/CVS File/Proposta.csv'
+load data local infile '~/database-project/res/csv/Proposta.csv'
 into table Proposta
 fields terminated by ','
 optionally enclosed by '"'
@@ -167,7 +167,7 @@ lines terminated by '\n'
 ignore 1 lines;
 
 
-load data local infile '~/Documenti/1_Università/2 anno/Basi Dati e Sistemi Informativi/5_Progetto/CVS File/Frequenza.csv'
+load data local infile '~/database-project/res/csv/Frequenza.csv'
 into table Frequenza
 fields terminated by ','
 optionally enclosed by '"'
@@ -213,7 +213,7 @@ insert into Amicizia(UserId,Amico_UserId,Data) values
 ('alipedebus','BYOBleonardo',null);
 
 
-load data local infile '~/Documenti/1_Università/2 anno/Basi Dati e Sistemi Informativi/5_Progetto/CVS File/Datore.csv'
+load data local infile '~/database-project/res/csv/Datore.csv'
 into table Datore
 fields terminated by ','
 optionally enclosed by '"'
@@ -221,7 +221,7 @@ lines terminated by '\n'
 ignore 1 lines;
 
 
-load data local infile '~/Documenti/1_Università/2 anno/Basi Dati e Sistemi Informativi/5_Progetto/CVS File/Impiego_Passato.csv'
+load data local infile '~/database-project/res/csv/Impiego_Passato.csv'
 into table Impiego_Passato
 fields terminated by ','
 optionally enclosed by '"'
@@ -229,7 +229,7 @@ lines terminated by '\n'
 ignore 1 lines;
 
 
-load data local infile '~/Documenti/1_Università/2 anno/Basi Dati e Sistemi Informativi/5_Progetto/CVS File/Professionista.csv'
+load data local infile '~/database-project/res/csv/Professionista.csv'
 into table Professionista
 fields terminated by ','
 optionally enclosed by '"'
@@ -237,7 +237,7 @@ lines terminated by '\n'
 ignore 1 lines;
 
 
-load data local infile '~/Documenti/1_Università/2 anno/Basi Dati e Sistemi Informativi/5_Progetto/CVS File/Dipendente.csv'
+load data local infile '~/database-project/res/csv/Dipendente.csv'
 into table Dipendente
 fields terminated by ','
 optionally enclosed by '"'
