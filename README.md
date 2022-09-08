@@ -5,7 +5,7 @@
     This repository contains the implementation for the laboratory project of Databases and Information Systems class at the University of Florence
   </p>
   <p align="center">
-    <img src="images/Completo senza generalizzazione.jpg" />
+    <img src="images/animation.gif" />
 </p>
 </div>
 
