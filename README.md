@@ -1,5 +1,3 @@
-# database-information-systems-project
-
 <br />
 <div align="center">
   <h1>Database Project</h1>
