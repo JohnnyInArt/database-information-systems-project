@@ -37,7 +37,7 @@
 </details>
 
 # Getting Started
-In order to run this [source code](/src/code-project.sql), download MySQL Workbench on the relative [site page](https://dev.mysql.com/downloads/workbench/).
+In order to run this [source code](/src/code-project.sql), download MySQL Workbench on the relative [site page](https://dev.mysql.com/downloads/workbench/) and run the instructions at the following [site](https://docs.oracle.com/en/java/java-components/advanced-management-console/2.25/install-guide/mysql-database-installation-and-configuration-advanced-management-console.html#GUID-0E1C48EF-2FCE-4DB6-AF06-30E497EAAE91) for proper configuration.
 Project tested in MySQL Workbench 8.0.30, installed on Ubuntu Linux 22.04.
 
 
