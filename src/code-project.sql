@@ -1,7 +1,7 @@
 
--- Creation of schema and constraints
+-- Creation of schema and constraints --
 
-drop database if exists PiattaformaX;
+drop database if exists Piattaformax;
 create database if not exists PiattaformaX;
 use PiattaformaX;
 
@@ -71,7 +71,7 @@ create table Frequenza (
 create table Amicizia (
  UserId varchar(20),
  Amico_UserId varchar(20),
- Data datetime null, 
+ Data DATETIME null, 
  primary key (UserId, Amico_UserId),
  foreign key(UserId) references User(UserId) on delete cascade,
  foreign key(Amico_UserId) references User(UserId) on delete cascade
@@ -111,7 +111,7 @@ create table Dipendente (
 ) engine = InnoDB;
 
 
--- Instance creation: database population  
+-- Instance creation: database population --
 
 
 /* 
@@ -121,7 +121,7 @@ create table Dipendente (
 
    Using only '\ n' in the command 'lines terminated by' 
 */
-load data local infile '~/database-project/res/csv/Utente.csv' 
+load data local infile '~/database-project-main/res/csv/Utente.csv' 
 into table Utente
 fields terminated by ','
 optionally enclosed by '"'
@@ -129,7 +129,7 @@ lines terminated by '\n'
 ignore 1 lines;
 
 
-load data local infile '~/database-project/res/csv/Admin.csv' 
+load data local infile '~/database-project-main/res/csv/Admin.csv' 
 into table Admin
 fields terminated by ','
 optionally enclosed by '"'
@@ -137,7 +137,7 @@ lines terminated by '\n'
 ignore 1 lines;
 
 
-load data local infile '~/database-project/res/csv/User.csv'
+load data local infile '~/database-project-main/res/csv/User.csv'
 into table User
 fields terminated by ','
 optionally enclosed by '"'
@@ -151,7 +151,7 @@ insert into Istruzione(Tipologia) values
 ('Istruzione superiore');
 
 
-load data local infile '~/database-project/res/csv/Scuola.csv'
+load data local infile '~/database-project-main/res/csv/Scuola.csv'
 into table Scuola
 fields terminated by ','
 optionally enclosed by '"'
@@ -159,7 +159,7 @@ lines terminated by '\n'
 ignore 1 lines;
 
 
-load data local infile '~/database-project/res/csv/Proposta.csv'
+load data local infile '~/database-project-main/res/csv/Proposta.csv'
 into table Proposta
 fields terminated by ','
 optionally enclosed by '"'
@@ -167,14 +167,16 @@ lines terminated by '\n'
 ignore 1 lines;
 
 
-load data local infile '~/database-project/res/csv/Frequenza.csv'
+load data local infile '~/database-project-main/res/csv/Frequenza.csv'
 into table Frequenza
 fields terminated by ','
 optionally enclosed by '"'
 lines terminated by '\n'
 ignore 1 lines;
 
-
+/*
+	Used to show the different methodologies for entering data into a table.
+*/
 insert into Amicizia(UserId,Amico_UserId,Data) values
 ('agata_2U','thestefano','2019-01-21 09:00:02'),
 ('agata_2U','sapling.linda','2019-06-29 23:57:54'),
@@ -213,7 +215,7 @@ insert into Amicizia(UserId,Amico_UserId,Data) values
 ('alipedebus','BYOBleonardo',null);
 
 
-load data local infile '~/database-project/res/csv/Datore.csv'
+load data local infile '~/database-project-main/res/csv/Datore.csv'
 into table Datore
 fields terminated by ','
 optionally enclosed by '"'
@@ -221,7 +223,7 @@ lines terminated by '\n'
 ignore 1 lines;
 
 
-load data local infile '~/database-project/res/csv/Impiego_Passato.csv'
+load data local infile '~/database-project-main/res/csv/Impiego_Passato.csv'
 into table Impiego_Passato
 fields terminated by ','
 optionally enclosed by '"'
@@ -229,7 +231,7 @@ lines terminated by '\n'
 ignore 1 lines;
 
 
-load data local infile '~/database-project/res/csv/Professionista.csv'
+load data local infile '~/database-project-main/res/csv/Professionista.csv'
 into table Professionista
 fields terminated by ','
 optionally enclosed by '"'
@@ -237,7 +239,7 @@ lines terminated by '\n'
 ignore 1 lines;
 
 
-load data local infile '~/database-project/res/csv/Dipendente.csv'
+load data local infile '~/database-project-main/res/csv/Dipendente.csv'
 into table Dipendente
 fields terminated by ','
 optionally enclosed by '"'
@@ -248,7 +250,7 @@ ignore 1 lines;
 
 
 
--- Additional bound via views and/or triggers
+-- Additional bound via views and/or triggers --
 
 
 /* 
@@ -291,7 +293,6 @@ delete from `PiattaformaX`.`Utente` where (`UserId` = 'And3');
 */
 
 drop view if exists Eta_User;
-SELECT * FROM PiattaformaX.Eta_User;
 create view Eta_User(`UserId`, `Eta`) as
 select UserId,
        case  when ((month(current_DATE) > month(Data_nascita)) or
@@ -301,13 +302,13 @@ select UserId,
         else year(current_DATE) - year(Data_nascita) - 1
 	   end
 from User;
+SELECT * FROM PiattaformaX.Eta_User;
 
 
 /* 
    View of workers currently employed with previous work and non-work experience.   
 */
 drop view if exists Lavoratore_dipendente;
-SELECT * FROM PiattaformaX.Lavoratore_dipendente;	
 create view Lavoratore_dipendente
 (`Nome`, `Cognome`, `Eta`, `Sesso`, `Città`, `Città di nascita`, `Datore attuale`, `Datore passato`, `Durata impiego`) as
 select distinct U.Nome,
@@ -325,12 +326,12 @@ from Utente U natural join User Us
              Eta_User E
 where E.UserId = Us.UserId
 order by U.Nome, U.Cognome;
+SELECT * FROM PiattaformaX.Lavoratore_dipendente;	
 
 /*
    View of the Users who have had previous work experience.
 */
 drop view if exists Lavori_pregressi;
-SELECT * FROM PiattaformaX.Lavori_pregressi;
 create view Lavori_pregressi(`UserId`, `Datore`, `Durata impiego`) as
  select U.UserId,
         I.Datore,
@@ -338,15 +339,14 @@ create view Lavori_pregressi(`UserId`, `Datore`, `Durata impiego`) as
 from Utente U natural join User Us 
               natural join Impiego_Passato I
 order by U.Nome, U.Cognome;
+SELECT * FROM PiattaformaX.Lavori_pregressi;
 
     
 /*
    View of the Users who are freelancers.
 */   
 drop view if exists Liberi_professionisti;
-SELECT * FROM PiattaformaX.Liberi_professionisti;
-create view Liberi_professionisti
-(`Nome`,`Cognome`,`Eta`,`Sesso`,`Città`,`Città di nascita`,`Area professionale`,`Titolo professionale`) as
+create view Liberi_professionisti(`Nome`,`Cognome`,`Eta`,`Sesso`,`Città`,`Città di nascita`,`Area professionale`,`Titolo professionale`) as
 select U.Nome,
        U.Cognome,
        E.Eta,
@@ -359,7 +359,7 @@ from Utente  U natural join User Us natural join Professionista P, Eta_User E
 where  Us.UserId = E.UserId and
        Us.UserId not in (select distinct D.UserId
 					        from Dipendente D );
-
+SELECT * FROM PiattaformaX.Liberi_professionisti;
 
 
 
@@ -393,7 +393,6 @@ order by Data_nascita desc;
 
 
 drop view if exists Immatricolazione;
-SELECT * FROM PiattaformaX.Immatricolazione;
 create view Immatricolazione(`UserId`, `Anno_imm`) as
 Select F.UserId,
        F.Anno_fine
@@ -410,6 +409,8 @@ from Utente U natural join User Us
 where F.Scuola like 'Liceo%' and 
 	  I.Anno_imm >= 2000
 order by Cognome, Nome;
+SELECT * FROM PiattaformaX.Immatricolazione;
+
 
 
 
@@ -566,7 +567,7 @@ from Lavoratore_dipendente;
 
 
 
---  Procedures and functions 
+--  Procedures and functions --
 
 
 /* 
@@ -691,12 +692,13 @@ call sedeDatore("Pisa");
    the NULL value in the Date field, because this column represents the day in
    which a friendship is made. 
 */
-drop function lista_amici;
+drop function if exists lista_amici;
 DELIMITER $$
 create function lista_amici(UserId varchar(20))
-returns varchar(20000)
+returns text
+DETERMINISTIC
 begin
-declare Lista_amici varchar(20000);
+declare Lista_amici text;
 select group_concat(Amico_UserId separator ', ')  into Lista_amici
 from Amicizia A1
 where A1.UserId = UserId and 
@@ -725,7 +727,7 @@ order by UserId;
    Example with data: 1990-01-01, result 30; 1990-07-01, result 29.
 */
     
-drop  function anni_di_lavoro;
+drop  function if exists anni_di_lavoro;
 DELIMITER $$
 create function anni_di_lavoro(Data_assunzione date) 
 returns int
