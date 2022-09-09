@@ -29,6 +29,7 @@
         </ul>
       </ul>
     </li>
+    <li><a href="#problem">Problem</a></li>
     <li><a href="#running-instructions">Running instructions</a></li>
     <li><a href="#assignment-and-report">Assignment and report</a></li>
     <li><a href="#license">License</a></li>
@@ -60,7 +61,7 @@ Platform X stores users. There are two types of users. Each user must be a user 
 
 Let's replace generalization with associations.
 <p align="center">
-    <img src="images/Generalization-user elimination.jpg" width='400' height='280'/>
+    <img src="images/Generalization-user elimination.jpg" width='700' height='280'/>
 </p>
 <p>
   <li>
@@ -99,12 +100,19 @@ Open a MySQL Workbench session and copy the contents of the [code-project.sql](\
 After copying all the contents of the file it's necessary to scroll the file up to the comment 'Instance creation: database population'.
 
 At this point it's necessary to change for each command 'load data local infile', the path of all csv file in relation to where they have been saved on the computer.
+<p>
 For example for Unix:
-  "load data local infile '~/database-project/res/cvs/nameFile.csv'",
+
+```diff
+  load data local infile '~/database-project/res/cvs/nameFile.csv'
+```
+
 '~' stands for /home/userName/
+</p>
+<p>
 For example for Windows:
   "load data local infile 'C:/Users/userName/database-project/res/cvs/nameFile.csv'"
-
+</p>
 
 
 # Probelm
@@ -113,15 +121,15 @@ When using MySQL Workbench 8 there's an error when using the command 'load data 
 <p>For the sake of completeness, the solution to the problem is also reported below.
 </p>
 <p>Open MySQL Workbench → go to Settings → Connection → Advanced → Others
+ <li>Add the string:</li>
 
- <li>Add the string:
- ```sh
+ ```diff
   OPT_LOCAL_INFILE = 1;
   ```
-</li>
+  
 </p>
 <p align="center">
-  <img  src="images/resolution-ERROR 2068.jpg" width='350' height=auto/>
+  <img  src="images/resolution-ERROR 2068.jpg" width='700' height=auto/>
 </p>
 
 
