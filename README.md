@@ -43,7 +43,7 @@ Project tested in MySQL Workbench 8.0.30, installed on Ubuntu Linux 22.04.
 
 # Description 
 University project that aims to create a database with related schemes and alleys. Instances are then created to populate that database and visits and triggers are implemented. Follows the implementation of queries such as: selections, projections, joins, with grouping, nested, with functions for flow control. Finally, procedures and functions are implemented.
-The idea from which the project takes its cue comes from the course '[Database Systems Concepts & Design](https://www.udacity.com/course/database-systems-concepts-design--ud150) present on Udacity.
+The idea from which the project takes its cue comes from the course '[Database Systems Concepts & Design](https://www.udacity.com/course/database-systems-concepts-design--ud150)' present on Udacity.
 The aim of the project is therefore to create a database for a social media X like Linkedin with the related queries, procedures and functions.
 
 # Conceptual design
@@ -115,7 +115,7 @@ When using MySQL Workbench 8 there's an error when using the command 'load data 
 </p>
 
 # Running instructions
-Open a MySQL Workbench session and copy the contents of the [code-project.sql](\src\code-project.sql) file.
+Open a MySQL Workbench session and copy the contents of the [code-project.sql](/src/code-project.sql) file.
 
 After copying all the contents of the file it's necessary to scroll the file up to the comment 'Instance creation: database population'.
 
