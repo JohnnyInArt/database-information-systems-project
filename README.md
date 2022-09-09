@@ -99,20 +99,22 @@ Let's replace generalization with associations.
 
 
 # Probelm
-When using MySQL Workbench 8 there's an error when using the command 'load data local infile', due to restrictions on file access permissions. The problem can be solved by consulting the following page of [stackoverflow](https://stackoverflow.com/a/64807264).
+When using MySQL Workbench 8 there's an error when using the command 'load data local infile', due to restrictions on file access permissions. 
 
-<p>For the sake of completeness, the solution to the problem is also reported below.
-</p>
+<p>The solution for the problem is as follows:</p>
 <p>Open MySQL Workbench → go to Settings → Connection → Advanced → Others
  <li>Add the string:</li>
 
  ```diff
-  OPT_LOCAL_INFILE = 1;
+  GLOBAL local_infile=1
+  OPT_LOCAL_INFILE=1
   ```
 </p>
 <p align="center">
   <img  src="images/resolution-ERROR 2068.jpg" width='700' height=auto/>
 </p>
+
+For completeness, the solution to [ERROR code 2068](https://stackoverflow.com/a/64807264) and [ERROR code 3948](https://stackoverflow.com/a/60717467) are present if you have links indicated on stackoverflow.
 
 # Running instructions
 Open a MySQL Workbench session and copy the contents of the [code-project.sql](/src/code-project.sql) file.
@@ -130,16 +132,16 @@ load data local infile '~/database-project/res/cvs/nameFile.csv'
 '~' stands for /home/userName/
 </p>
 
-<!---
+
 <p>
 For example for Windows:
 
 ```diff
-load data local infile 'C:/Users/userName/database-project/res/cvs/nameFile.csv'
+load data local infile 'C:/Users/youUserName/database-project/res/cvs/nameFile.csv'
 ```
 
 </p>
--->
+
 
 <p>
 After changing the paths for all the CSV files, all you have to do is press the lightning icon to run the program on the top left.
