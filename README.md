@@ -42,7 +42,7 @@ Project tested in MySQL Workbench 8.0.30, installed on Ubuntu Linux 22.04.
 
 
 # Description 
-University project that aims to create a database with related schemes and alleys. Instances are then created to populate that database and visits and triggers are implemented. Follows the implementation of queries such as: selections, projections, joins, with grouping, nested, with functions for flow control. Finally, procedures and functions are implemented.
+University project that aims to create a database with related schemes and alleys. Instances are then created to populate that database, visits and triggers are implemented. Follows the implementation of queries such as: selections, projections, joins, with grouping, nested, with functions for flow control. Finally, procedures and functions are implemented.
 The idea from which the project takes its cue comes from the course '[Database Systems Concepts & Design](https://www.udacity.com/course/database-systems-concepts-design--ud150)' present on Udacity.
 The aim of the project is therefore to create a database for a social media X like Linkedin with the related queries, procedures and functions.
 
