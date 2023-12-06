@@ -64,7 +64,7 @@ Platform X stores users. There are two types of users. Each user must be a user 
 
 Let's replace generalization with associations.
 <p align="center">
-    <img src="images/Generalization-user elimination.jpg" width='700' height='280'/>
+    <img src="images/Generalization-user elimination.jpg" width='500' height='280'/>
 </p>
 <p>
   <li>
